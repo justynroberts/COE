@@ -1,0 +1,49 @@
+[ {
+  "description" : "# COE-006: Rulesets - Service Availability Check\n\n## Overview\nReal-world ruleset implementation for service availability monitoring. Demonstrates how to build production-ready health checks with intelligent response handling.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~10 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Network connectivity |\n| Target Host | Reachable via ICMP or TCP |\n| Permissions | Ping capability enabled |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| `target_host` | String | - | google.com | Host to check (FQDN or IP) |\n| `timeout` | Integer | - | 5 | Connection timeout in seconds |\n| `retry_count` | Integer | - | 3 | Number of retry attempts |\n\n## Health Check Logic\n\n| Test | Criteria | Pass Condition |\n|------|----------|----------------|\n| ICMP Ping | 3 packets sent | At least 1 response received |\n| Timeout Check | 2 second wait | Response within threshold |\n| Retry Logic | Up to 3 attempts | Any attempt succeeds |\n\n## Notifications\n\n| Event | Severity | Action |\n|-------|----------|--------|\n| Check passed | Info | Log success status |\n| Check failed | Warning | Trigger remediation workflow |\n| Timeout exceeded | Critical | Escalate to on-call |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Host is available and responding |\n| 1 | Failure | Host unreachable or timeout |\n| 2 | Timeout | Check exceeded time limit |\n\n## Learning Objectives\n\n- Build production health checks\n- Implement retry logic\n- Parse availability responses\n- Create alerting conditions\n- Extend for HTTP/TCP checks\n\n---\n\n**Use Case:** Service monitoring and availability validation | **Difficulty:** Intermediate\n\n# COE-006: Rulesets - Availability Check\n\n# COE-006: Rulesets - Service Availability Check\n\n## Overview\nReal-world ruleset implementation for service availability monitoring. Demonstrates how to build production-ready health checks with intelligent response handling.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~10 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Network connectivity |\n| Target Host | Reachable via ICMP or TCP |\n| Permissions | Ping capability enabled |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| `target_host` | String | - | google.com | Host to check (FQDN or IP) |\n| `timeout` | Integer | - | 5 | Connection timeout in seconds |\n| `retry_count` | Integer | - | 3 | Number of retry attempts |\n\n## Health Check Logic\n\n| Test | Criteria | Pass Condition |\n|------|----------|----------------|\n| ICMP Ping | 3 packets sent | At least 1 response received |\n| Timeout Check | 2 second wait | Response within threshold |\n| Retry Logic | Up to 3 attempts | Any attempt succeeds |\n\n## Notifications\n\n| Event | Severity | Action |\n|-------|----------|--------|\n| Check passed | Info | Log success status |\n| Check failed | Warning | Trigger remediation workflow |\n| Timeout exceeded | Critical | Escalate to on-call |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Host is available and responding |\n| 1 | Failure | Host unreachable or timeout |\n| 2 | Timeout | Check exceeded time limit |\n\n## Learning Objectives\n\n- Build production health checks\n- Implement retry logic\n- Parse availability responses\n- Create alerting conditions\n- Extend for HTTP/TCP checks\n\n---\n\n**Use Case:** Service monitoring and availability validation | **Difficulty:** Intermediate\n\n## Variables\n\nThis job uses the following variables (configured as job options):\n\n- `TARGET`: Variable for job execution\n- `option`: Variable for job execution\n\n## Execution Steps\n\n1. **Step 1: !/bin/bash**\n   ```bash\n   #!/bin/bash\nTARGET=\"${option.target_host:-google.com}\"\n   ```\n\n2. **Step 2: Execute command**\n   ```bash\n   echo \"=== Service Availability Check ===\"\necho \"Target: $TARGET\"\necho \"Timestamp: $(date)\"\necho \"\"\n   ```\n\n3. **Step 3: Ping test**\n   ```bash\n   # Ping test\necho \"Running connectivity test...\"\nif ping -c 3 -W 2 $TARGET > /dev/null 2>&1; then\necho \"STATUS: AVAILABLE\"\necho \"Response: Host is reachable\"\nexit 0\nelse\necho \"STATUS: UNAVAILABLE\"\necho \"Response: Host unreachable or timeout\"\nexit 1\nfi\n   ```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "uoYlLt6jwNalkvyG",
+  "loglevel" : "INFO",
+  "name" : "COE-006: Rulesets - Availability Check",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "options" : [ {
+    "description" : "Value for TARGET",
+    "name" : "TARGET",
+    "required" : true
+  }, {
+    "description" : "Value for option",
+    "name" : "option",
+    "required" : true
+  } ],
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: !/bin/bash",
+      "exec" : "#!/bin/bash\nTARGET=\"${option.target_host:-google.com}\""
+    }, {
+      "description" : "Step 2: Execute command",
+      "exec" : "echo \"=== Service Availability Check ===\"\necho \"Target: @option.TARGET@\"\necho \"Timestamp: $(date)\"\necho \"\""
+    }, {
+      "description" : "Step 3: Ping test",
+      "exec" : "# Ping test\necho \"Running connectivity test...\"\nif ping -c 3 -W 2 @option.TARGET@ > /dev/null 2>&1; then\necho \"STATUS: AVAILABLE\"\necho \"Response: Host is reachable\"\nexit 0\nelse\necho \"STATUS: UNAVAILABLE\"\necho \"Response: Host unreachable or timeout\"\nexit 1\nfi"
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "uoYlLt6jwNalkvyG"
+} ]

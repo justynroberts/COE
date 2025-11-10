@@ -1,0 +1,34 @@
+[ {
+  "description" : "# COE-005: Rulesets - Complex Logic (Ice Cream Demo)\n\n## Overview\nFun demonstration of ruleset capabilities for complex conditional logic. Shows how to build \"If This Then That\" workflows with multiple decision paths.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~15 seconds |\n| **Timeout** | 1 minute |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Ruleset workflow support |\n| Logic Engine | Conditional evaluation capability |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| `flavor` | Choice | - | vanilla | Ice cream flavor selection |\n| `toppings` | Choice | - | none | Topping options |\n| `size` | Choice | - | medium | Serving size |\n\n## Ruleset Logic\n\n| Condition | Action | Outcome |\n|-----------|--------|---------|\n| flavor = chocolate + toppings = none | Simple order | Quick service path |\n| flavor = vanilla + size = large | Premium path | Extra processing |\n| toppings != none | Complex order | Multiple preparation steps |\n| Error condition | Fallback handler | Graceful failure |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Order processed through ruleset |\n| 1 | Failure | Invalid combination or logic error |\n\n## Learning Objectives\n\n- Write ruleset conditions\n- Create decision trees\n- Handle multiple execution paths\n- Implement fallback logic\n- Debug complex workflows\n\n---\n\n**Use Case:** Complex conditional automation workflows | **Difficulty:** Intermediate\n\n# COE-005: Rulesets - Complex Logic\n\n# COE-005: Rulesets - Complex Logic (Ice Cream Demo)\n\n## Overview\nFun demonstration of ruleset capabilities for complex conditional logic. Shows how to build \"If This Then That\" workflows with multiple decision paths.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~15 seconds |\n| **Timeout** | 1 minute |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Ruleset workflow support |\n| Logic Engine | Conditional evaluation capability |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| `flavor` | Choice | - | vanilla | Ice cream flavor selection |\n| `toppings` | Choice | - | none | Topping options |\n| `size` | Choice | - | medium | Serving size |\n\n## Ruleset Logic\n\n| Condition | Action | Outcome |\n|-----------|--------|---------|\n| flavor = chocolate + toppings = none | Simple order | Quick service path |\n| flavor = vanilla + size = large | Premium path | Extra processing |\n| toppings != none | Complex order | Multiple preparation steps |\n| Error condition | Fallback handler | Graceful failure |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Order processed through ruleset |\n| 1 | Failure | Invalid combination or logic error |\n\n## Learning Objectives\n\n- Write ruleset conditions\n- Create decision trees\n- Handle multiple execution paths\n- Implement fallback logic\n- Debug complex workflows\n\n---\n\n**Use Case:** Complex conditional automation workflows | **Difficulty:** Intermediate\n\n## Execution\n\n```bash\necho \"Ice Cream Order System - Demonstrating Ruleset Logic\"\necho \"\"\necho \"This job demonstrates complex conditional workflows\"\necho \"Edit the workflow to see how rulesets enable 'If This Then That' logic\"\necho \"\"\necho \"Ruleset capabilities shown:\"\necho \"- Conditional execution based on option values\"\necho \"- Multiple decision paths\"\necho \"- Success/failure handling\"\necho \"- Nested conditions\"\n```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "QtrWgDr8PtANy5tO",
+  "loglevel" : "INFO",
+  "name" : "COE-005: Rulesets - Complex Logic",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: Execute command",
+      "exec" : "echo \"Ice Cream Order System - Demonstrating Ruleset Logic\"\necho \"\"\necho \"This job demonstrates complex conditional workflows\"\necho \"Edit the workflow to see how rulesets enable 'If This Then That' logic\"\necho \"\"\necho \"Ruleset capabilities shown:\"\necho \"- Conditional execution based on option values\"\necho \"- Multiple decision paths\"\necho \"- Success/failure handling\"\necho \"- Nested conditions\""
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "QtrWgDr8PtANy5tO"
+} ]

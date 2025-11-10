@@ -1,0 +1,46 @@
+[ {
+  "description" : "# COE-002: Inline Script Execution\n\n## Overview\nExecute hosted scripts remotely via Process Automation. This job demonstrates how to deploy and run scripts in any language (Bash, Python, PowerShell) without manual file distribution.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~10 seconds |\n| **Timeout** | 1 minute |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Active connection with script execution capability |\n| Target OS | Linux with standard utilities (top, free, df) |\n| Shell Access | Bash interpreter available |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Script runs with default system checks |\n\n## Script Capabilities\n\n| Metric | Command | Output |\n|--------|---------|--------|\n| CPU Usage | top | Current CPU utilization percentage |\n| Memory | free | RAM usage and availability |\n| Disk Space | df | Root partition capacity |\n| Load Average | uptime | 1/5/15 minute load averages |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Health report generated successfully |\n| 1 | Failure | Script execution error or missing utilities |\n\n## Learning Objectives\n\n- Execute inline scripts remotely\n- Capture structured output\n- Understand script interpretation (shebang)\n- Monitor system resources\n\n---\n\n**Use Case:** System health monitoring baseline | **Difficulty:** Beginner\n\n# COE-002: Inline Script Execution\n\n# COE-002: Inline Script Execution\n\n## Overview\nExecute hosted scripts remotely via Process Automation. This job demonstrates how to deploy and run scripts in any language (Bash, Python, PowerShell) without manual file distribution.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~10 seconds |\n| **Timeout** | 1 minute |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Active connection with script execution capability |\n| Target OS | Linux with standard utilities (top, free, df) |\n| Shell Access | Bash interpreter available |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Script runs with default system checks |\n\n## Script Capabilities\n\n| Metric | Command | Output |\n|--------|---------|--------|\n| CPU Usage | top | Current CPU utilization percentage |\n| Memory | free | RAM usage and availability |\n| Disk Space | df | Root partition capacity |\n| Load Average | uptime | 1/5/15 minute load averages |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Health report generated successfully |\n| 1 | Failure | Script execution error or missing utilities |\n\n## Learning Objectives\n\n- Execute inline scripts remotely\n- Capture structured output\n- Understand script interpretation (shebang)\n- Monitor system resources\n\n---\n\n**Use Case:** System health monitoring baseline | **Difficulty:** Beginner\n\n## Execution Steps\n\n1. **Step 1: !/bin/bash**\n   ```bash\n   #!/bin/bash\n   ```\n\n2. **Step 2: System Health Monitoring Script**\n   ```bash\n   # System Health Monitoring Script\n   ```\n\n3. **Step 3: Collects key system metrics for health assessment**\n   ```bash\n   # Collects key system metrics for health assessment\n   ```\n\n4. **Step 4: Execute command**\n   ```bash\n   echo \"=== System Health Report ===\"\necho \"Generated: $(date)\"\necho \"\"\necho \"CPU Usage:\"\ntop -bn1 | grep \"Cpu(s)\" | sed \"s/.*, *\\([0-9.]*\\)%* id.*/\\1/\" | awk '{print 100 - $1\"%\"}'\necho \"\"\necho \"Memory Usage:\"\nfree -h | awk '/^Mem:/ {print \"Used: \"$3\" / \"$2\" (\"$3/$2*100\"%)\"}'\necho \"\"\necho \"Disk Usage:\"\ndf -h / | awk '/\\// {print \"Used: \"$3\" / \"$2\" (\"$5\")\"}'\necho \"\"\necho \"Load Average:\"\nuptime | awk -F'load average:' '{print $2}'\necho \"\"\n   ```\n\n5. **Step 5: Execute command**\n   ```bash\n   echo \"=== End Report ===\"\n   ```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "v9259l4S7qnGHmR5",
+  "loglevel" : "INFO",
+  "name" : "COE-002: Inline Script Execution",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: !/bin/bash",
+      "exec" : "#!/bin/bash"
+    }, {
+      "description" : "Step 2: System Health Monitoring Script",
+      "exec" : "# System Health Monitoring Script"
+    }, {
+      "description" : "Step 3: Collects key system metrics for health assessment",
+      "exec" : "# Collects key system metrics for health assessment"
+    }, {
+      "description" : "Step 4: Execute command",
+      "exec" : "echo \"=== System Health Report ===\"\necho \"Generated: $(date)\"\necho \"\"\necho \"CPU Usage:\"\ntop -bn1 | grep \"Cpu(s)\" | sed \"s/.*, *\\([0-9.]*\\)%* id.*/\\1/\" | awk '{print 100 - $1\"%\"}'\necho \"\"\necho \"Memory Usage:\"\nfree -h | awk '/^Mem:/ {print \"Used: \"$3\" / \"$2\" (\"$3/$2*100\"%)\"}'\necho \"\"\necho \"Disk Usage:\"\ndf -h / | awk '/\\// {print \"Used: \"$3\" / \"$2\" (\"$5\")\"}'\necho \"\"\necho \"Load Average:\"\nuptime | awk -F'load average:' '{print $2}'\necho \"\""
+    }, {
+      "description" : "Step 5: Execute command",
+      "exec" : "echo \"=== End Report ===\""
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "v9259l4S7qnGHmR5"
+} ]

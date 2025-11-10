@@ -1,0 +1,61 @@
+[ {
+  "description" : "# COE-008: Job Variables and Context\n\n## Overview\nComprehensive reference for built-in Process Automation variables. Essential for creating dynamic, context-aware automation workflows.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~5 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Standard connectivity |\n| Variable Access | Built-in context available |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Displays all available variables |\n\n## Available Variables\n\n| Category | Variable | Description |\n|----------|----------|-------------|\n| **Job Identity** | `${job.id}` | Unique job identifier |\n| | `${job.name}` | Human-readable job name |\n| | `${job.group}` | Job group/folder path |\n| | `${job.project}` | Project name |\n| **Execution** | `${job.execid}` | Current execution ID |\n| | `${job.username}` | User who triggered job |\n| | `${job.url}` | Direct link to job |\n| **Context** | `${node.name}` | Target node identifier |\n| | `${job.serverUrl}` | Rundeck base URL |\n\n## Common Usage Patterns\n\n| Use Case | Pattern | Example |\n|----------|---------|---------|\n| Temp directories | `/tmp/job-${job.id}` | Unique workspace per job |\n| Log files | `${job.name}-${job.execid}.log` | Traceable execution logs |\n| Audit trails | `Executed by ${job.username}` | User attribution |\n| API callbacks | `${job.serverUrl}/api/job/${job.id}` | Self-referencing URLs |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | All variables displayed successfully |\n| 1 | Failure | Variable access error |\n\n## Learning Objectives\n\n- Discover available job variables\n- Reference variables in scripts\n- Create dynamic file paths\n- Build audit trails\n- Generate unique identifiers\n\n---\n\n**Use Case:** Dynamic job development and context awareness | **Difficulty:** Beginner\n\n# COE-008: Job Variables and Context\n\n# COE-008: Job Variables and Context\n\n## Overview\nComprehensive reference for built-in Process Automation variables. Essential for creating dynamic, context-aware automation workflows.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~5 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Standard connectivity |\n| Variable Access | Built-in context available |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Displays all available variables |\n\n## Available Variables\n\n| Category | Variable | Description |\n|----------|----------|-------------|\n| **Job Identity** | `${job.id}` | Unique job identifier |\n| | `${job.name}` | Human-readable job name |\n| | `${job.group}` | Job group/folder path |\n| | `${job.project}` | Project name |\n| **Execution** | `${job.execid}` | Current execution ID |\n| | `${job.username}` | User who triggered job |\n| | `${job.url}` | Direct link to job |\n| **Context** | `${node.name}` | Target node identifier |\n| | `${job.serverUrl}` | Rundeck base URL |\n\n## Common Usage Patterns\n\n| Use Case | Pattern | Example |\n|----------|---------|---------|\n| Temp directories | `/tmp/job-${job.id}` | Unique workspace per job |\n| Log files | `${job.name}-${job.execid}.log` | Traceable execution logs |\n| Audit trails | `Executed by ${job.username}` | User attribution |\n| API callbacks | `${job.serverUrl}/api/job/${job.id}` | Self-referencing URLs |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | All variables displayed successfully |\n| 1 | Failure | Variable access error |\n\n## Learning Objectives\n\n- Discover available job variables\n- Reference variables in scripts\n- Create dynamic file paths\n- Build audit trails\n- Generate unique identifiers\n\n---\n\n**Use Case:** Dynamic job development and context awareness | **Difficulty:** Beginner\n\n## Variables\n\nThis job uses the following variables (configured as job options):\n\n- `job`: Variable for job execution\n- `node`: Variable for job execution\n\n## Execution Steps\n\n1. **Step 1: !/bin/bash**\n   ```bash\n   #!/bin/bash\n   ```\n\n2. **Step 2: Execute command**\n   ```bash\n   echo \"=== Process Automation Job Variables ===\"\necho \"\"\n   ```\n\n3. **Step 3: Execute command**\n   ```bash\n   echo \"=== Job Context ===\"\necho \"Job Name: ${job.name}\"\necho \"Job ID: ${job.id}\"\necho \"Job Group: ${job.group}\"\necho \"Job Project: ${job.project}\"\necho \"Job Username: ${job.username}\"\necho \"Job URL: ${job.url}\"\necho \"\"\n   ```\n\n4. **Step 4: Execute command**\n   ```bash\n   echo \"=== Execution Context ===\"\necho \"Execution ID: ${job.execid}\"\necho \"Execution User: ${job.user.name}\"\n   ```\n\n5. **Step 5: Execute command**\n   ```bash\n   echo \"Execution Date: ${job.dateStartedW3c}\"\necho \"\"\n   ```\n\n6. **Step 6: Execute command**\n   ```bash\n   echo \"=== System Context ===\"\necho \"Rundeck URL: ${job.serverUrl}\"\necho \"Node Name: ${node.name}\"\necho \"\"\n   ```\n\n7. **Step 7: Execute command**\n   ```bash\n   echo \"=== Common Usage Patterns ===\"\necho \"Unique temp directory: /tmp/job-${job.id}\"\necho \"Log file naming: ${job.name}-${job.execid}.log\"\necho \"User attribution: Executed by ${job.username}\"\necho \"\"\necho \"Reference format: \\${job.variable}\"\n   ```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "jPR1CfugIOIC6zUI",
+  "loglevel" : "INFO",
+  "name" : "COE-008: Job Variables and Context",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "options" : [ {
+    "description" : "Value for job",
+    "name" : "job",
+    "required" : true
+  }, {
+    "description" : "Value for node",
+    "name" : "node",
+    "required" : true
+  } ],
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: !/bin/bash",
+      "exec" : "#!/bin/bash"
+    }, {
+      "description" : "Step 2: Execute command",
+      "exec" : "echo \"=== Process Automation Job Variables ===\"\necho \"\""
+    }, {
+      "description" : "Step 3: Execute command",
+      "exec" : "echo \"=== Job Context ===\"\necho \"Job Name: ${job.name}\"\necho \"Job ID: ${job.id}\"\necho \"Job Group: ${job.group}\"\necho \"Job Project: ${job.project}\"\necho \"Job Username: ${job.username}\"\necho \"Job URL: ${job.url}\"\necho \"\""
+    }, {
+      "description" : "Step 4: Execute command",
+      "exec" : "echo \"=== Execution Context ===\"\necho \"Execution ID: ${job.execid}\"\necho \"Execution User: ${job.user.name}\""
+    }, {
+      "description" : "Step 5: Execute command",
+      "exec" : "echo \"Execution Date: ${job.dateStartedW3c}\"\necho \"\""
+    }, {
+      "description" : "Step 6: Execute command",
+      "exec" : "echo \"=== System Context ===\"\necho \"Rundeck URL: ${job.serverUrl}\"\necho \"Node Name: ${node.name}\"\necho \"\""
+    }, {
+      "description" : "Step 7: Execute command",
+      "exec" : "echo \"=== Common Usage Patterns ===\"\necho \"Unique temp directory: /tmp/job-${job.id}\"\necho \"Log file naming: ${job.name}-${job.execid}.log\"\necho \"User attribution: Executed by ${job.username}\"\necho \"\"\necho \"Reference format: \\${job.variable}\""
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "jPR1CfugIOIC6zUI"
+} ]

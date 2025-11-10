@@ -1,0 +1,40 @@
+[ {
+  "description" : "# COE-004: Log Filters and Data Capture\n\n## Overview\nProcess command output to capture values, mask sensitive data, parse structured formats, and create visual indicators. Essential for building intelligent automation workflows.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~10 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Log filter capability enabled |\n| Output Parsing | Regex and JSON parsing support |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Demonstrates built-in filter capabilities |\n\n## Log Filter Examples\n\n| Filter Type | Pattern | Purpose |\n|-------------|---------|---------|\n| Multi-line Regex | `START_CAPTURE(.*?)END_CAPTURE` | Capture blocks of output |\n| Single Value | `RESPONSE_TIME: (\\d+)ms` | Extract specific metrics |\n| Mask Data | `PASSWORD: (.*)` | Hide sensitive information |\n| JSON Parse | Parse entire JSON objects | Extract structured data |\n| Status Highlight | `PASSED\\|FAILED\\|WARNING` | Visual status indicators |\n\n## Data Capture Variables\n\n| Variable | Format | Usage |\n|----------|--------|-------|\n| `${data.captured_block}` | String | Multi-line captured content |\n| `${data.response_time}` | Integer | Extracted numeric value |\n| `${data.json.status}` | String | Parsed JSON field |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | All filters demonstrated successfully |\n| 1 | Failure | Filter processing error |\n\n## Learning Objectives\n\n- Apply regex patterns to output\n- Capture and reuse values\n- Mask sensitive data in logs\n- Parse JSON responses\n- Create visual status indicators\n\n---\n\n**Use Case:** Intelligent output processing and data extraction | **Difficulty:** Intermediate\n\n# COE-004: Log Filters and Data Capture\n\n# COE-004: Log Filters and Data Capture\n\n## Overview\nProcess command output to capture values, mask sensitive data, parse structured formats, and create visual indicators. Essential for building intelligent automation workflows.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~10 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Log filter capability enabled |\n| Output Parsing | Regex and JSON parsing support |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Demonstrates built-in filter capabilities |\n\n## Log Filter Examples\n\n| Filter Type | Pattern | Purpose |\n|-------------|---------|---------|\n| Multi-line Regex | `START_CAPTURE(.*?)END_CAPTURE` | Capture blocks of output |\n| Single Value | `RESPONSE_TIME: (\\d+)ms` | Extract specific metrics |\n| Mask Data | `PASSWORD: (.*)` | Hide sensitive information |\n| JSON Parse | Parse entire JSON objects | Extract structured data |\n| Status Highlight | `PASSED\\|FAILED\\|WARNING` | Visual status indicators |\n\n## Data Capture Variables\n\n| Variable | Format | Usage |\n|----------|--------|-------|\n| `${data.captured_block}` | String | Multi-line captured content |\n| `${data.response_time}` | Integer | Extracted numeric value |\n| `${data.json.status}` | String | Parsed JSON field |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | All filters demonstrated successfully |\n| 1 | Failure | Filter processing error |\n\n## Learning Objectives\n\n- Apply regex patterns to output\n- Capture and reuse values\n- Mask sensitive data in logs\n- Parse JSON responses\n- Create visual status indicators\n\n---\n\n**Use Case:** Intelligent output processing and data extraction | **Difficulty:** Intermediate\n\n## Execution Steps\n\n1. **Step 1: !/bin/bash**\n   ```bash\n   #!/bin/bash\n   ```\n\n2. **Step 2: Execute command**\n   ```bash\n   echo \"=== Log Filter Demonstrations ===\"\necho \"\"\necho \"1. Multi-line capture:\"\n   ```\n\n3. **Step 3: Execute command**\n   ```bash\n   echo \"START_CAPTURE\"\necho \"Line 1 of data\"\necho \"Line 2 of data\"\necho \"Line 3 of data\"\necho \"END_CAPTURE\"\necho \"\"\necho \"2. Single value extraction:\"\necho \"RESPONSE_TIME: 142ms\"\necho \"\"\necho \"3. Sensitive data (will be masked):\"\necho \"PASSWORD: SuperSecret123!\"\necho \"\"\necho \"4. JSON parsing:\"\necho '{\"status\": \"healthy\", \"uptime\": 86400, \"connections\": 42}'\necho \"\"\necho \"5. Status indicators:\"\necho \"CHECK: PASSED\"\necho \"CHECK: FAILED\"\necho \"CHECK: WARNING\"\n   ```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "YUT9trAJujrqLNvc",
+  "loglevel" : "INFO",
+  "name" : "COE-004: Log Filters and Data Capture",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: !/bin/bash",
+      "exec" : "#!/bin/bash"
+    }, {
+      "description" : "Step 2: Execute command",
+      "exec" : "echo \"=== Log Filter Demonstrations ===\"\necho \"\"\necho \"1. Multi-line capture:\""
+    }, {
+      "description" : "Step 3: Execute command",
+      "exec" : "echo \"START_CAPTURE\"\necho \"Line 1 of data\"\necho \"Line 2 of data\"\necho \"Line 3 of data\"\necho \"END_CAPTURE\"\necho \"\"\necho \"2. Single value extraction:\"\necho \"RESPONSE_TIME: 142ms\"\necho \"\"\necho \"3. Sensitive data (will be masked):\"\necho \"PASSWORD: SuperSecret123!\"\necho \"\"\necho \"4. JSON parsing:\"\necho '{\"status\": \"healthy\", \"uptime\": 86400, \"connections\": 42}'\necho \"\"\necho \"5. Status indicators:\"\necho \"CHECK: PASSED\"\necho \"CHECK: FAILED\"\necho \"CHECK: WARNING\""
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "YUT9trAJujrqLNvc"
+} ]

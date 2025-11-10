@@ -1,0 +1,39 @@
+[ {
+  "description" : "# COE-007: Scheduled Job Execution\n\n## Overview\nDemonstrates time-based automation with cron scheduling. Shows how to create recurring jobs for maintenance, monitoring, and data synchronization tasks.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~5 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Scheduler service enabled |\n| Time Sync | NTP configured on runner |\n| Execution Window | Within defined maintenance window |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Runs automatically per schedule |\n\n## Schedule Configuration\n\n| Field | Value | Description |\n|-------|-------|-------------|\n| Cron Expression | `0 * * ? * MON-FRI` | Every hour on weekdays |\n| Timezone | UTC | Reference timezone |\n| Enabled | Demo mode | Schedule disabled for training |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Scheduled execution completed |\n| 1 | Failure | Execution error or timeout |\n\n## Learning Objectives\n\n- Configure cron schedules\n- Understand timezone handling\n- Enable/disable schedules\n- View execution history\n- Create maintenance windows\n\n---\n\n**Use Case:** Recurring automation tasks and scheduled maintenance | **Difficulty:** Beginner\n\n# COE-007: Scheduled Job Execution\n\n# COE-007: Scheduled Job Execution\n\n## Overview\nDemonstrates time-based automation with cron scheduling. Shows how to create recurring jobs for maintenance, monitoring, and data synchronization tasks.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~5 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Scheduler service enabled |\n| Time Sync | NTP configured on runner |\n| Execution Window | Within defined maintenance window |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| None | - | - | - | Runs automatically per schedule |\n\n## Schedule Configuration\n\n| Field | Value | Description |\n|-------|-------|-------------|\n| Cron Expression | `0 * * ? * MON-FRI` | Every hour on weekdays |\n| Timezone | UTC | Reference timezone |\n| Enabled | Demo mode | Schedule disabled for training |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Scheduled execution completed |\n| 1 | Failure | Execution error or timeout |\n\n## Learning Objectives\n\n- Configure cron schedules\n- Understand timezone handling\n- Enable/disable schedules\n- View execution history\n- Create maintenance windows\n\n---\n\n**Use Case:** Recurring automation tasks and scheduled maintenance | **Difficulty:** Beginner\n\n## Variables\n\nThis job uses the following variables (configured as job options):\n\n- `job`: Variable for job execution\n\n## Execution\n\n```bash\necho \"=== Scheduled Job Execution ===\"\necho \"Execution Time: $(date)\"\necho \"Job ID: ${job.id}\"\necho \"Executed By: ${job.username}\"\necho \"\"\necho \"This job demonstrates scheduled automation\"\necho \"Current Schedule: Hourly on weekdays\"\necho \"\"\necho \"Scheduled jobs can:\"\necho \"- Run maintenance tasks\"\necho \"- Generate reports\"\necho \"- Perform health checks\"\necho \"- Sync data between systems\"\n```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "toy7cxSpxGmTQJBY",
+  "loglevel" : "INFO",
+  "name" : "COE-007: Scheduled Job Execution",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "options" : [ {
+    "description" : "Value for job",
+    "name" : "job",
+    "required" : true
+  } ],
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: Execute command",
+      "exec" : "echo \"=== Scheduled Job Execution ===\"\necho \"Execution Time: $(date)\"\necho \"Job ID: ${job.id}\"\necho \"Executed By: ${job.username}\"\necho \"\"\necho \"This job demonstrates scheduled automation\"\necho \"Current Schedule: Hourly on weekdays\"\necho \"\"\necho \"Scheduled jobs can:\"\necho \"- Run maintenance tasks\"\necho \"- Generate reports\"\necho \"- Perform health checks\"\necho \"- Sync data between systems\""
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "toy7cxSpxGmTQJBY"
+} ]

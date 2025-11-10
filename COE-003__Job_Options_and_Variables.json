@@ -1,0 +1,39 @@
+[ {
+  "description" : "# COE-003: Job Options and Variables\n\n## Overview\nCapture user input through options (variables) to make jobs dynamic and reusable. Options can be populated manually, from webhooks, or via API calls.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~5 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Standard connectivity |\n| User Input | Valid values per option constraints |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| `text_input` | String | ✓ | - | Free-form text input example |\n| `choice_input` | Choice | ✓ | - | Dropdown selection (Option A/B/C) |\n| `regex_input` | String | ✓ | - | Validated input (email format: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$) |\n\n## Option Validation\n\n| Option | Constraint | Example |\n|--------|------------|---------|\n| text_input | None | Any string value |\n| choice_input | Predefined list | Must select from dropdown |\n| regex_input | Email pattern | user@example.com |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Options captured and displayed |\n| 1 | Failure | Validation failure or execution error |\n\n## Learning Objectives\n\n- Define job options/variables\n- Apply input validation with regex\n- Reference options in commands (${option.name})\n- Create reusable job templates\n\n---\n\n**Use Case:** Dynamic job execution with user input | **Difficulty:** Beginner\n\n# COE-003: Job Options and Variables\n\n# COE-003: Job Options and Variables\n\n## Overview\nCapture user input through options (variables) to make jobs dynamic and reusable. Options can be populated manually, from webhooks, or via API calls.\n\n## Job Metadata\n\n| Property | Value |\n|----------|-------|\n| **Author** | PagerDuty CoE Team |\n| **Version** | 1.0.0 |\n| **Average Runtime** | ~5 seconds |\n| **Timeout** | 30 seconds |\n\n## Prerequisites\n\n| Requirement | Validation |\n|-------------|------------|\n| Runner Agent | Standard connectivity |\n| User Input | Valid values per option constraints |\n\n## Parameters\n\n| Parameter | Type | Required | Default | Description |\n|-----------|------|----------|---------|-------------|\n| `text_input` | String | ✓ | - | Free-form text input example |\n| `choice_input` | Choice | ✓ | - | Dropdown selection (Option A/B/C) |\n| `regex_input` | String | ✓ | - | Validated input (email format: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$) |\n\n## Option Validation\n\n| Option | Constraint | Example |\n|--------|------------|---------|\n| text_input | None | Any string value |\n| choice_input | Predefined list | Must select from dropdown |\n| regex_input | Email pattern | user@example.com |\n\n## Exit Codes\n\n| Code | Status | Description |\n|------|--------|-------------|\n| 0 | Success | Options captured and displayed |\n| 1 | Failure | Validation failure or execution error |\n\n## Learning Objectives\n\n- Define job options/variables\n- Apply input validation with regex\n- Reference options in commands (${option.name})\n- Create reusable job templates\n\n---\n\n**Use Case:** Dynamic job execution with user input | **Difficulty:** Beginner\n\n## Variables\n\nThis job uses the following variables (configured as job options):\n\n- `option`: Variable for job execution\n\n## Execution\n\n```bash\necho \"Option 1 Value: text_example\"\necho \"Option 2 Value: choice_example\"\necho \"Option 3 (Validated): validated_example\"\necho \"\"\necho \"These values can be used in commands, scripts, and plugins\"\necho \"Reference format: \\${option.option_name}\"\n```\n\n## Notes\n\n- Job runs locally if no target nodes specified\n- Variables are automatically extracted and created as job options\n- Variable substitution rules:\n  - Single-line commands: `${option.VARIABLENAME}` format\n  - Multi-line scripts: `@option.VARIABLENAME@` format\n",
+  "executionEnabled" : true,
+  "group" : "CoE Training Library",
+  "id" : "H5pLIaUQf89qoh2x",
+  "loglevel" : "INFO",
+  "name" : "COE-003: Job Options and Variables",
+  "nodeFilterEditable" : true,
+  "nodefilters" : {
+    "dispatch" : {
+      "excludePrecedence" : true,
+      "keepgoing" : false,
+      "rankOrder" : "ascending",
+      "successOnEmptyNodeFilter" : false,
+      "threadcount" : "1"
+    },
+    "filter" : "name: localhost"
+  },
+  "nodesSelectedByDefault" : true,
+  "options" : [ {
+    "description" : "Value for option",
+    "name" : "option",
+    "required" : true
+  } ],
+  "plugins" : {
+    "ExecutionLifecycle" : null
+  },
+  "scheduleEnabled" : true,
+  "schedules" : [ ],
+  "sequence" : {
+    "commands" : [ {
+      "description" : "Step 1: Execute command",
+      "exec" : "echo \"Option 1 Value: text_example\"\necho \"Option 2 Value: choice_example\"\necho \"Option 3 (Validated): validated_example\"\necho \"\"\necho \"These values can be used in commands, scripts, and plugins\"\necho \"Reference format: \\${option.option_name}\""
+    } ],
+    "keepgoing" : false,
+    "strategy" : "node-first"
+  },
+  "uuid" : "H5pLIaUQf89qoh2x"
+} ]
